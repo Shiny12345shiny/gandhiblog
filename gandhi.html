@@ -1,14 +1,15 @@
-<!doctype html>
-<html lang="en" class="h-full">
- <head><script src="/_sdk/telemetry_sdk.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Controversy Files: Mahatma Gandhi - Exploring the achievements, criticisms, and historical legacy of one of the most influential figures in modern history.">
-  <title>Controversy Files: Mahatma Gandhi - Historical Analysis</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controversy Files: Mahatma Gandhi</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Lora:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
@@ -17,777 +18,308 @@
             sepia: '#8B7355',
             cream: '#F5EFE6',
             charcoal: '#2C2C2C',
-            'sage': '#7BA59F',
-            'rust': '#A0533E'
+            sage: '#7BA59F',
+            rust: '#A0533E'
           }
         }
       }
     }
   </script>
+
   <style>
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
     .font-lora { font-family: 'Lora', serif; }
-    .vintage-paper { background: linear-gradient(135deg, #F5EFE6 0%, #EFE9E0 50%, #F5EFE6 100%); }
-    .sepia-tone { filter: sepia(0.4) brightness(1.05); }
-    .newspaper-shadow { box-shadow: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.4); }
-    .hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(44,44,44,0.5) 50%, rgba(44,44,44,0.8) 100%); }
-    .card-vintage { border: 1px solid rgba(139,115,85,0.2); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; }
-    .card-vintage:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-    .timeline-marker { position: relative; }
-    .timeline-marker:before { content: ''; position: absolute; left: -16px; top: 6px; width: 12px; height: 12px; background: #8B7355; border-radius: 50%; border: 2px solid #F5EFE6; }
-    .section-divider { background: linear-gradient(90deg, transparent 0%, #8B7355 50%, transparent 100%); }
-    .quote-left { border-left: 4px solid #A0533E; padding-left: 20px; }
-    .vintage-border { border-top: 2px solid #8B7355; border-bottom: 2px solid #8B7355; padding: 12px 0; }
-    .article-text { line-height: 1.9; letter-spacing: 0.3px; }
+
+    .newspaper-shadow {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 0%,
+        rgba(44,44,44,0.6) 50%,
+        rgba(44,44,44,0.85) 100%
+      );
+    }
+
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #8B7355, transparent);
+    }
   </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full font-lora bg-cream text-charcoal overflow-auto"><!-- Header -->
-  <header class="bg-charcoal text-cream sticky top-0 z-50 newspaper-shadow">
-   <div class="max-w-6xl mx-auto px-4 py-4">
-    <div class="flex items-start justify-between mb-3">
-     <div>
-      <p class="text-xs tracking-widest uppercase text-sage">Historical Archives</p>
-      <h1 class="font-cormorant text-2xl md:text-4xl font-bold text-cream leading-tight" id="article_title">Controversy Files: Mahatma Gandhi</h1>
-      <p class="text-xs text-sage tracking-wide mt-1">Examining History with Balance and Integrity</p>
-     </div>
-     <div class="hidden md:block text-right text-xs text-sage">
-      <div id="current-date"></div>
-      <p class="text-cream/60 text-xs mt-1">Issue #2025</p>
-     </div>
-    </div>
-    <div class="flex items-center justify-between pt-2 border-t border-sage/30">
-     <nav class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wide text-cream/70">
-      <a href="#early-life" class="hover:text-sage transition-colors">Early Life</a> <a href="#independence" class="hover:text-sage transition-colors">Independence</a> <a href="#philosophy" class="hover:text-sage transition-colors">Philosophy</a> <a href="#controversies" class="hover:text-sage transition-colors">Controversies</a> <a href="#legacy" class="hover:text-sage transition-colors">Legacy</a>
-     </nav><button class="lg:hidden p-2" id="menu-btn" aria-label="Menu"><i data-lucide="menu" style="width:18px;height:18px;color:#7BA59F"></i></button>
-    </div>
-   </div>
-  </header><!-- Mobile Menu -->
-  <div class="lg:hidden hidden bg-charcoal border-b border-sage/30" id="mobile-menu">
-   <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2 text-sm text-cream/70"><a href="#early-life" class="py-2 hover:text-sage">Early Life</a> <a href="#independence" class="py-2 hover:text-sage">Independence Movement</a> <a href="#philosophy" class="py-2 hover:text-sage">Philosophy</a> <a href="#controversies" class="py-2 hover:text-sage">Controversies</a> <a href="#legacy" class="py-2 hover:text-sage">Legacy Today</a>
-   </div>
-  </div><!-- Hero Section -->
-  <section class="relative bg-charcoal overflow-hidden">
-   <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2210%22 y=%2220%22 font-size=%2212%22 fill=%22%238B7355%22 opacity=%220.3%22%3EGANDHI%3C/text%3E%3Ctext x=%2215%22 y=%2250%22 font-size=%228%22 fill=%22%238B7355%22 opacity=%220.2%22%3EFREEDOM%3C/text%3E%3Ctext x=%225%22 y=%2275%22 font-size=%2210%22 fill=%22%238B7355%22 opacity=%220.2%22%3E1947%3C/text%3E%3Ctext x=%2260%22 y=%2240%22 font-size=%2214%22 fill=%22%238B7355%22 opacity=%220.15%22%3EINDIA%3C/text%3E%3C/svg%3E'); background-size: 200px 200px;"></div>
-   <div class="hero-overlay absolute inset-0"></div>
-   <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24">
-    <div class="text-center text-cream">
-     <p class="text-xs uppercase tracking-widest text-sage mb-4">Featured Historical Analysis</p>
-     <h2 class="font-cormorant text-4xl md:text-6xl font-bold leading-tight mb-6" id="main_headline">Mahatma Gandhi: Freedom Fighter, Global Icon, and a Figure of Ongoing Debate</h2>
-     <p class="font-cormorant text-xl md:text-2xl text-cream/80 max-w-4xl mx-auto leading-relaxed" id="article_subtitle">Exploring the achievements, criticisms, controversies, and historical legacy of one of the most influential figures in modern history.</p>
-     <div class="flex flex-wrap justify-center gap-3 mt-8 text-xs"><span class="px-4 py-1.5 bg-sage/20 border border-sage text-sage rounded">1869 - 1948</span> <span class="px-4 py-1.5 bg-rust/20 border border-rust text-cream rounded">Non-Violence</span> <span class="px-4 py-1.5 bg-sage/20 border border-sage text-sage rounded">Independence Leader</span> <span class="px-4 py-1.5 bg-rust/20 border border-rust text-cream rounded">Controversial Figure</span>
-     </div>
-    </div>
-   </div>
-  </section><!-- Author & Date Info -->
-  <div class="bg-sepia/5 border-y border-sepia/20">
-   <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm">
-    <div>
-     <p class="text-charcoal font-semibold">By <span id="author_name">Dr. Historical Research Team</span></p>
-     <p class="text-charcoal/60 text-xs">Published: January 2025</p>
-    </div>
-    <div class="flex items-center gap-4 text-xs text-charcoal/60"><span class="flex items-center gap-1"><i data-lucide="clock" style="width:14px;height:14px"></i> 18 min read</span> <span class="flex items-center gap-1"><i data-lucide="share-2" style="width:14px;height:14px"></i> Share</span>
-    </div>
-   </div>
-  </div><!-- Main Content -->
-  <main class="max-w-6xl mx-auto px-4 py-10">
-   <div class="grid lg:grid-cols-3 gap-10"><!-- Article Column -->
-    <article class="lg:col-span-2 article-text"><!-- Section 1: Early Life -->
-     <section id="early-life" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Early Life and Background</h3>
-      <p class="text-charcoal/80 mb-4">Mohandas Karamchand Gandhi was born on October 2, 1869, in Porbandar, a small town in the princely state of Kathiawar in present-day Gujarat, India. He came from a merchant family with a tradition of public service. His father, Karamchand Gandhi, served as the Prime Minister of Kathiawar, while his mother, Putlibai, came from a Vaishnavite Hindu background deeply influenced by religious devotion.</p>
-      <p class="text-charcoal/80 mb-4">After studying law in London and practicing as a barrister in India, Gandhi took a transformative journey to South Africa in 1893. It was here that he first encountered systematic racial discrimination against Indians, an experience that would profoundly shape his political consciousness and eventually lead him to develop the philosophy of non-violent resistance.</p>
-      <p class="text-charcoal/80">His experiences in South Africa—including his own experiences of racial humiliation and witnessing the suffering of the Indian community—catalyzed his transformation from a shy lawyer into a fearless activist committed to justice through peaceful means.</p>
-     </section><!-- Section Divider -->
-     <div class="h-px section-divider my-8"></div><!-- Section 2: Independence Movement -->
-     <section id="independence" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Gandhi's Role in India's Independence Movement</h3>
-      <p class="text-charcoal/80 mb-4">Upon returning to India in 1915, Gandhi quickly became the voice of Indian independence. He assumed leadership of the Indian National Congress and introduced the concept of <em>Satyagraha</em> (truth-force), a method of non-violent protest that became the cornerstone of India's freedom struggle.</p>
-      <div class="bg-cream border-l-4 border-rust p-4 my-5 rounded">
-       <p class="text-sm text-charcoal/80 italic">"In a gentle way, you can shake the world." — Gandhi</p>
-      </div>
-      <p class="text-charcoal/80 mb-4">Key campaigns under Gandhi's leadership included:</p>
-      <ul class="list-disc list-inside text-charcoal/80 mb-4 space-y-2">
-       <li><strong>Non-Cooperation Movement (1920-1922):</strong> Boycott of British institutions and products</li>
-       <li><strong>Salt March (1930):</strong> The iconic 240-mile march to the sea to protest the salt monopoly</li>
-       <li><strong>Quit India Movement (1942):</strong> The final push for British withdrawal from India</li>
-      </ul>
-      <p class="text-charcoal/80">These movements mobilized millions of Indians and fundamentally challenged the legitimacy of British rule, demonstrating the power of mass civil disobedience conducted peacefully.</p>
-     </section><!-- Section Divider -->
-     <div class="h-px section-divider my-8"></div><!-- Section 3: Philosophy -->
-     <section id="philosophy" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Philosophy of Non-Violence (<em>Ahimsa</em>)</h3>
-      <p class="text-charcoal/80 mb-4">At the heart of Gandhi's political philosophy lay the principle of <em>Ahimsa</em> (non-violence) and <em>Satyagraha</em> (truth-force or soul-force). These were not merely tactics but deeply held ethical principles rooted in Hindu and Jain traditions, combined with Christian ideas of turning the other cheek.</p>
-      <p class="text-charcoal/80 mb-4">Gandhi believed that:</p>
-      <div class="space-y-3 mb-4">
-       <div class="pl-4 border-l-2 border-sage">
-        <p class="text-sm font-semibold text-charcoal mb-1">Non-violence is a force, not weakness</p>
-        <p class="text-xs text-charcoal/70">It requires moral courage to face oppression without retaliation</p>
-       </div>
-       <div class="pl-4 border-l-2 border-sage">
-        <p class="text-sm font-semibold text-charcoal mb-1">Truth must be pursued through peaceful means</p>
-        <p class="text-xs text-charcoal/70">Violence corrupts even righteous causes</p>
-       </div>
-       <div class="pl-4 border-l-2 border-sage">
-        <p class="text-sm font-semibold text-charcoal mb-1">Individual transformation leads to social change</p>
-        <p class="text-xs text-charcoal/70">Personal discipline and moral living are prerequisites for political action</p>
-       </div>
-      </div>
-      <p class="text-charcoal/80">This philosophy influenced global leaders from Martin Luther King Jr. to Nelson Mandela, demonstrating its universal resonance.</p>
-     </section><!-- Section Divider -->
-     <div class="h-px section-divider my-8"></div><!-- Section 4: Global Influence -->
-     <section id="global-influence" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Global Influence and Recognition</h3>
-      <p class="text-charcoal/80 mb-4">Gandhi's influence extended far beyond India's borders. His methods of non-violent resistance became a model for civil rights movements worldwide:</p>
-      <ul class="list-disc list-inside text-charcoal/80 mb-4 space-y-2">
-       <li>Martin Luther King Jr. drew direct inspiration from Gandhi's philosophy</li>
-       <li>The Civil Rights Movement in the United States adopted similar non-violent protest tactics</li>
-       <li>Nelson Mandela and the anti-apartheid movement in South Africa acknowledged Gandhi's influence</li>
-       <li>The concept of <em>Satyagraha</em> inspired non-violent movements across Asia, Africa, and Latin America</li>
-      </ul>
-      <p class="text-charcoal/80">In 1947, Gandhi was posthumously nominated for the Nobel Peace Prize multiple times (though never awarded it during his lifetime). His legacy remains central to discussions about ethics in politics, non-violence as a tool for social change, and the possibilities of moral leadership.</p>
-     </section><!-- Section Divider -->
-     <div class="h-px section-divider my-8"></div><!-- Section 5: Criticisms and Controversies -->
-     <section id="controversies" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Criticisms, Controversies, and Debates Among Historians</h3>
-      <p class="text-charcoal/80 mb-4">While widely revered, Gandhi's life and philosophy remain subjects of significant scholarly debate. Historians and political analysts point to several controversial aspects:</p>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">1. Partition and Hindu-Muslim Relations</h4>
-       <p class="text-sm text-charcoal/80">Critics argue that Gandhi's insistence on non-violence during communal riots and his opposition to the partition may have prolonged suffering. Others contend his assassination by a Hindu nationalist showed the limitations of non-violence against religious extremism.</p>
-      </div>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">2. Women's Rights and Gender Equality</h4>
-       <p class="text-sm text-charcoal/80">Some feminist scholars argue that Gandhi's emphasis on women's domestic roles and celibacy reflected patriarchal attitudes. His views on women's sexuality and his famous "experiments" (which he conducted partly to test his celibacy) have drawn criticism.</p>
-      </div>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">3. Caste and Dalit Issues</h4>
-       <p class="text-sm text-charcoal/80">While Gandhi spoke against caste discrimination, critics argue he did not go far enough in addressing systemic caste oppression. Dr. B.R. Ambedkar, architect of India's Constitution, sharply disagreed with Gandhi's approaches to Dalit issues.</p>
-      </div>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">4. Economic Philosophy and Modernization</h4>
-       <p class="text-sm text-charcoal/80">Gandhi's vision of a rural, agrarian India based on spinning and cottage industries was criticized as impractical by modernizers. Some argue his opposition to industrialization hindered India's economic development.</p>
-      </div>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">5. Religious Syncretism and Hindu Identity</h4>
-       <p class="text-sm text-charcoal/80">Some Hindu nationalists viewed Gandhi's inclusive vision of India as diluting Hindu identity. Others appreciated his effort to build a multi-religious national movement. The debate reflects broader tensions about secularism and nationalism in India.</p>
-      </div>
-      <div class="bg-cream border-l-4 border-rust p-4 mb-5 rounded">
-       <h4 class="font-semibold text-charcoal mb-2 text-sm">6. Use of Non-Violence in All Circumstances</h4>
-       <p class="text-sm text-charcoal/80">Some argue that absolute non-violence can be naïve in the face of systematic state violence. Revolutionary thinkers questioned whether non-violence was always the most ethical choice when facing brutal oppression.</p>
-      </div>
-     </section><!-- Section Divider -->
-     <div class="h-px section-divider my-8"></div><!-- Section 6: Historical Context & Legacy -->
-     <section id="legacy" class="mb-10">
-      <h3 class="font-cormorant text-2xl font-bold text-charcoal mb-4">Historical Legacy and Relevance Today</h3>
-      <p class="text-charcoal/80 mb-4">Nearly 80 years after his assassination in 1948, Gandhi remains one of the most studied, debated, and influential figures in world history. His legacy operates on multiple levels:</p>
-      <h4 class="font-semibold text-charcoal mt-5 mb-3">As a Political Leader</h4>
-      <p class="text-charcoal/80 mb-4">Gandhi successfully mobilized a diverse population to challenge imperial rule through non-violent means. This achievement fundamentally challenged prevailing assumptions about the necessity of violence in political change.</p>
-      <h4 class="font-semibold text-charcoal mt-5 mb-3">As a Moral Philosopher</h4>
-      <p class="text-charcoal/80 mb-4">His integration of spirituality, ethics, and politics offered an alternative to both traditional power politics and revolutionary ideology. This continues to appeal to those seeking ethical foundations for political action.</p>
-      <h4 class="font-semibold text-charcoal mt-5 mb-3">As a Contested Historical Figure</h4>
-      <p class="text-charcoal/80 mb-4">Contemporary historians emphasize the need to understand Gandhi in context—both celebrating his achievements while acknowledging his limitations, contradictions, and blind spots. This nuanced approach allows for honest historical reckoning.</p>
-      <div class="bg-charcoal text-cream p-6 rounded my-6">
-       <p class="text-sm italic">"A man of contradictions—yet this is what makes him human and historically significant. Understanding Gandhi means grappling with both his profound moral vision and his very real limitations."</p>
-       <p class="text-xs text-sage mt-3">— Contemporary Historical Consensus</p>
-      </div>
-     </section>
-    </article><!-- Sidebar -->
-    <aside class="space-y-6"><!-- Timeline -->
-     <div class="card-vintage p-5 bg-white rounded">
-      <h4 class="font-cormorant font-bold text-lg text-charcoal mb-5 flex items-center gap-2"><i data-lucide="calendar" style="width:18px;height:18px;color:#8B7355"></i> Timeline</h4>
-      <div class="space-y-4 text-sm">
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1869</p>
-        <p class="text-xs text-charcoal/60">Born in Porbandar, Gujarat</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1893-1914</p>
-        <p class="text-xs text-charcoal/60">Activism in South Africa</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1920</p>
-        <p class="text-xs text-charcoal/60">Non-Cooperation Movement</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1930</p>
-        <p class="text-xs text-charcoal/60">Salt March</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1942</p>
-        <p class="text-xs text-charcoal/60">Quit India Movement</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1947</p>
-        <p class="text-xs text-charcoal/60">India's Independence</p>
-       </div>
-       <div class="timeline-marker">
-        <p class="font-semibold text-charcoal">1948</p>
-        <p class="text-xs text-charcoal/60">Assassinated January 30</p>
-       </div>
-      </div>
-     </div><!-- Historical Quotes -->
-     <div class="card-vintage p-5 bg-white rounded">
-      <h4 class="font-cormorant font-bold text-lg text-charcoal mb-4 flex items-center gap-2"><i data-lucide="quote" style="width:18px;height:18px;color:#A0533E"></i> Key Quotes</h4>
-      <div class="space-y-4 text-xs">
-       <div class="quote-left">
-        <p class="text-charcoal italic">"In a gentle way, you can shake the world."</p>
-       </div>
-       <div class="quote-left">
-        <p class="text-charcoal italic">"Non-violence is a weapon of the strong."</p>
-       </div>
-       <div class="quote-left">
-        <p class="text-charcoal italic">"The future depends on what you do today."</p>
-       </div>
-       <div class="quote-left">
-        <p class="text-charcoal italic">"Truth is like a torch, the more you shake it the more it shines."</p>
-       </div>
-      </div>
-     </div><!-- Related Historical Figures -->
-     <div class="card-vintage p-5 bg-white rounded">
-      <h4 class="font-cormorant font-bold text-lg text-charcoal mb-4">Related Figures</h4>
-      <div class="space-y-3 text-xs">
-       <div class="pb-3 border-b border-sepia/20">
-        <p class="font-semibold text-charcoal">Jawaharlal Nehru</p>
-        <p class="text-charcoal/60">First PM of India, follower of Gandhi</p>
-       </div>
-       <div class="pb-3 border-b border-sepia/20">
-        <p class="font-semibold text-charcoal">Subhas Chandra Bose</p>
-        <p class="text-charcoal/60">Independence leader, advocated military methods</p>
-       </div>
-       <div class="pb-3 border-b border-sepia/20">
-        <p class="font-semibold text-charcoal">Dr. B.R. Ambedkar</p>
-        <p class="text-charcoal/60">Constitutional architect, critic of Gandhi</p>
-       </div>
-       <div class="pb-3 border-b border-sepia/20">
-        <p class="font-semibold text-charcoal">Martin Luther King Jr.</p>
-        <p class="text-charcoal/60">Influenced by Gandhi's non-violence</p>
-       </div>
-       <div>
-        <p class="font-semibold text-charcoal">Nelson Mandela</p>
-        <p class="text-charcoal/60">Acknowledged Gandhi's inspiration</p>
-       </div>
-      </div>
-     </div><!-- Reader Poll -->
-     <div class="card-vintage p-5 bg-white rounded">
-      <h4 class="font-cormorant font-bold text-lg text-charcoal mb-4 flex items-center gap-2"><i data-lucide="help-circle" style="width:18px;height:18px;color:#8B7355"></i> Reader Poll</h4>
-      <p class="text-xs text-charcoal/80 mb-4">How do you view Gandhi's overall historical impact?</p>
-      <div class="space-y-2 text-xs"><label class="flex items-center gap-2 cursor-pointer"> <input type="radio" name="poll" value="positive" class="w-4 h-4"> <span class="text-charcoal">Overwhelmingly positive</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="radio" name="poll" value="mixed" class="w-4 h-4"> <span class="text-charcoal">Positive with nuance</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="radio" name="poll" value="critical" class="w-4 h-4"> <span class="text-charcoal">Critically complex</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="radio" name="poll" value="negative" class="w-4 h-4"> <span class="text-charcoal">Significant limitations</span> </label>
-      </div><button class="w-full mt-3 bg-sepia text-cream px-3 py-2 rounded text-xs font-semibold hover:bg-sepia/90 transition-colors">Vote</button>
-     </div><!-- Historical Context -->
-     <div class="card-vintage p-5 bg-rust/5 border border-rust/30 rounded">
-      <h4 class="font-cormorant font-bold text-sm text-rust mb-3">📜 Historical Context</h4>
-      <p class="text-xs text-charcoal/80 leading-relaxed">This article aims to present a balanced, scholarly perspective on Gandhi's life and legacy. We acknowledge both his significant contributions to non-violent resistance and independence movements while recognizing legitimate scholarly critiques regarding his views on gender, caste, and economic policy.</p>
-     </div>
-    </aside>
-   </div>
-  </main><!-- Further Reading & Sources -->
-  <section class="bg-charcoal text-cream mt-12">
-   <div class="max-w-6xl mx-auto px-4 py-10">
-    <h3 class="font-cormorant text-2xl font-bold mb-6">Sources and Further Reading</h3>
-    <div class="grid md:grid-cols-2 gap-6 text-sm">
-     <div>
-      <h4 class="font-semibold text-sage mb-3">Primary Sources</h4>
-      <ul class="space-y-2 text-cream/80 text-xs">
-       <li>• The Collected Works of Mahatma Gandhi</li>
-       <li>• Gandhi's Autobiography: The Story of My Experiments with Truth</li>
-       <li>• Indian Home Rule (Hind Swaraj)</li>
-       <li>• Selected Letters and Speeches</li>
-      </ul>
-     </div>
-     <div>
-      <h4 class="font-semibold text-sage mb-3">Recommended Scholarly Works</h4>
-      <ul class="space-y-2 text-cream/80 text-xs">
-       <li>• Ramachandra Guha - "Gandhi Before India"</li>
-       <li>• Judith Brown - "Gandhi: Prisoner of Hope"</li>
-       <li>• Joseph Lelyveld - "Great Soul"</li>
-       <li>• Suresh Chandra Ghosh - Critical Studies on Gandhi</li>
-      </ul>
-     </div>
-    </div>
-   </div>
-  </section><!-- Footer Disclaimer -->
-  <footer class="bg-charcoal border-t border-sage/30 py-8">
-   <div class="max-w-6xl mx-auto px-4">
-    <div class="grid md:grid-cols-3 gap-6 mb-6 text-xs text-cream/70">
-     <div>
-      <p class="font-semibold text-sage mb-2">About This Article</p>
-      <p class="leading-relaxed">This is a scholarly analysis of Mahatma Gandhi's life, philosophy, and historical impact. It presents multiple perspectives and acknowledged controversies surrounding his legacy.</p>
-     </div>
-     <div>
-      <p class="font-semibold text-sage mb-2">Editorial Standards</p>
-      <p class="leading-relaxed">We strive for historical accuracy, balanced representation of differing scholarly views, and respect for all communities affected by the events discussed.</p>
-     </div>
-     <div>
-      <p class="font-semibold text-sage mb-2">Historical Disclaimer</p>
-      <p class="leading-relaxed">Historical figures are products of their time. Understanding history requires acknowledging both achievements and limitations within historical context.</p>
-     </div>
-    </div>
-    <div class="border-t border-sage/30 pt-6 text-center text-xs text-cream/50">
-     <p>© 2025 Controversy Files - Historical Archives. All rights reserved.</p>
-     <p class="mt-2">Dedicated to thoughtful, balanced historical inquiry</p>
-    </div>
-   </div>
-  </footer>
-  <script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
+</head>
 
-  // Set current date
-  const today = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', options);
+<body class="bg-cream text-charcoal font-lora">
 
-  // Element SDK
-  const defaultConfig = {
-    article_title: 'Controversy Files: Mahatma Gandhi',
-    main_headline: 'Mahatma Gandhi: Freedom Fighter, Global Icon, and a Figure of Ongoing Debate',
-    article_subtitle: 'Exploring the achievements, criticisms, controversies, and historical legacy of one of the most influential figures in modern history.',
-    author_name: 'Dr. Historical Research Team',
-    primary_color: '#2C2C2C',
-    secondary_color: '#F5EFE6',
-    text_color: '#8B7355',
-    accent_color: '#A0533E',
-    font_family: 'Cormorant Garamond',
-    font_size: 16
-  };
-
-  function applyConfig(config) {
-    const title = document.getElementById('article_title');
-    const headline = document.getElementById('main_headline');
-    const subtitle = document.getElementById('article_subtitle');
-    const author = document.getElementById('author_name');
+<!-- HEADER -->
+<header class="bg-charcoal text-cream sticky top-0 z-50 newspaper-shadow">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-start">
     
-    if (title) title.textContent = config.article_title || defaultConfig.article_title;
-    if (headline) headline.textContent = config.main_headline || defaultConfig.main_headline;
-    if (subtitle) subtitle.textContent = config.article_subtitle || defaultConfig.article_subtitle;
-    if (author) author.textContent = config.author_name || defaultConfig.author_name;
-
-    const font = config.font_family || defaultConfig.font_family;
-    document.querySelectorAll('.font-cormorant').forEach(el => {
-      el.style.fontFamily = `${font}, serif`;
-    });
-
-    const size = config.font_size || defaultConfig.font_size;
-    document.body.style.fontSize = `${size}px`;
-  }
-
-  window.elementSdk.init({
-    defaultConfig,
-    onConfigChange: async (config) => { applyConfig(config); },
-    mapToCapabilities: (config) => ({
-      recolorables: [
-        { get: () => config.primary_color || defaultConfig.primary_color, set: (v) => { config.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); } },
-        { get: () => config.secondary_color || defaultConfig.secondary_color, set: (v) => { config.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); } },
-        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-        { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } }
-      ],
-      borderables: [],
-      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
-      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
-    }),
-    mapToEditPanelValues: (config) => new Map([
-      ['article_title', config.article_title || defaultConfig.article_title],
-      ['main_headline', config.main_headline || defaultConfig.main_headline],
-      ['article_subtitle', config.article_subtitle || defaultConfig.article_subtitle],
-      ['author_name', config.author_name || defaultConfig.author_name]
-    ])
-  });
-
-  lucide.createIcons();
-  </script>
-  <div class="bg-red-700 text-white py-1.5 overflow-hidden" id="breaking-bar">
-   <div class="flex items-center">
-    <span class="bg-white text-red-700 font-bold px-3 py-0.5 text-xs uppercase mr-4 shrink-0">Breaking</span>
-    <div class="overflow-hidden whitespace-nowrap">
-     <span class="ticker-scroll inline-block" id="breaking-text"> G7 Summit concludes with new economic sanctions framework • UN Security Council emergency session on regional conflicts • Global markets react to trade policy shifts • New diplomatic talks between major powers announced •&nbsp;&nbsp;&nbsp; G7 Summit concludes with new economic sanctions framework • UN Security Council emergency session on regional conflicts • Global markets react to trade policy shifts • New diplomatic talks between major powers announced • </span>
-    </div>
-   </div>
-  </div><!-- Ad Placeholder Header -->
-  <div class="bg-gray-100 border-b border-gray-200 py-2 text-center">
-   <div class="max-w-4xl mx-auto px-4">
-    <div class="bg-gray-200 rounded h-16 flex items-center justify-center text-gray-400 text-sm">
-     Advertisement
-    </div>
-   </div>
-  </div><!-- Header -->
-  <header class="bg-navy text-white sticky top-0 z-50 shadow-lg">
-   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <div>
-     <h1 class="font-playfair text-xl md:text-2xl font-bold leading-tight" id="site-title">Power &amp; Politics</h1>
-     <p class="text-gold text-xs tracking-widest uppercase">Inside Global Leadership</p>
+      <p class="text-xs uppercase tracking-widest text-sage">Historical Archives</p>
+      <h1 class="font-cormorant text-3xl font-bold">Controversy Files</h1>
+      <p class="text-xs text-sage">Mahatma Gandhi Analysis</p>
     </div>
-    <nav class="hidden lg:flex items-center gap-6 text-sm">
-     <a href="#home" class="hover:text-gold transition-colors nav-link active-nav">Home</a> <a href="#leaders" class="hover:text-gold transition-colors nav-link">World Leaders</a> <a href="#economy" class="hover:text-gold transition-colors nav-link">Global Economy</a> <a href="#tech" class="hover:text-gold transition-colors nav-link">Technology</a> <a href="#analysis" class="hover:text-gold transition-colors nav-link">Analysis</a> <a href="#about" class="hover:text-gold transition-colors nav-link">About</a>
-    </nav>
-    <div class="flex items-center gap-3">
-     <button class="p-2 hover:text-gold transition-colors" aria-label="Search"><i data-lucide="search" style="width:18px;height:18px"></i></button> <button class="lg:hidden p-2" id="menu-btn" aria-label="Menu"><i data-lucide="menu" style="width:20px;height:20px"></i></button>
-    </div>
-   </div><!-- Mobile Menu -->
-   <div class="lg:hidden hidden bg-navy-light border-t border-navy-mid" id="mobile-menu">
-    <div class="px-4 py-3 flex flex-col gap-2 text-sm">
-     <a href="#home" class="py-2 hover:text-gold">Home</a> <a href="#leaders" class="py-2 hover:text-gold">World Leaders</a> <a href="#china" class="py-2 hover:text-gold">China &amp; Asia</a> <a href="#us" class="py-2 hover:text-gold">United States</a> <a href="#russia" class="py-2 hover:text-gold">Russia &amp; Europe</a> <a href="#economy" class="py-2 hover:text-gold">Global Economy</a> <a href="#tech" class="py-2 hover:text-gold">Technology &amp; AI</a> <a href="#about" class="py-2 hover:text-gold">About</a> <a href="#contact" class="py-2 hover:text-gold">Contact</a>
-    </div>
-   </div>
-  </header><!-- Category Nav -->
-  <div class="bg-white border-b border-gray-200 overflow-x-auto">
-   <div class="max-w-7xl mx-auto px-4 flex gap-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-gray-600 whitespace-nowrap">
-    <a href="#" class="hover:text-gold transition-colors">World Leaders</a> <a href="#" class="hover:text-gold transition-colors">China &amp; Asia</a> <a href="#" class="hover:text-gold transition-colors">US Politics</a> <a href="#" class="hover:text-gold transition-colors">Russia &amp; Europe</a> <a href="#" class="hover:text-gold transition-colors">Global Economy</a> <a href="#" class="hover:text-gold transition-colors">Elections</a> <a href="#" class="hover:text-gold transition-colors">Technology &amp; AI</a> <a href="#" class="hover:text-gold transition-colors">Fact Check</a> <a href="#" class="hover:text-gold transition-colors">History</a>
-   </div>
-  </div><!-- Hero Section -->
-  <section class="hero-gradient map-bg relative overflow-hidden">
-   <div class="absolute inset-0 bg-navy/70"></div>
-   <div class="relative max-w-7xl mx-auto px-4 py-12 md:py-20">
-    <div class="grid lg:grid-cols-3 gap-8 items-center">
-     <!-- Leader Cards -->
-     <div class="lg:col-span-2 grid grid-cols-3 gap-4">
-      <div class="text-center">
-       <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-navy-mid border-2 border-gold flex items-center justify-center text-3xl md:text-4xl mb-3">
-        🇨🇳
-       </div>
-       <p class="text-white font-playfair font-bold text-sm md:text-base">Xi Jinping</p>
-       <p class="text-gold text-xs">President of China</p>
-      </div>
-      <div class="text-center">
-       <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-navy-mid border-2 border-gold flex items-center justify-center text-3xl md:text-4xl mb-3">
-        🇺🇸
-       </div>
-       <p class="text-white font-playfair font-bold text-sm md:text-base">Donald Trump</p>
-       <p class="text-gold text-xs">US President</p>
-      </div>
-      <div class="text-center">
-       <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-navy-mid border-2 border-gold flex items-center justify-center text-3xl md:text-4xl mb-3">
-        🇷🇺
-       </div>
-       <p class="text-white font-playfair font-bold text-sm md:text-base">Vladimir Putin</p>
-       <p class="text-gold text-xs">President of Russia</p>
-      </div>
-     </div><!-- Headline -->
-     <div class="text-center lg:text-left">
-      <span class="text-gold text-xs uppercase tracking-widest font-semibold">Featured Analysis</span>
-      <h2 class="font-playfair text-white text-2xl md:text-3xl font-bold mt-2 leading-tight" id="main-headline">Xi Jinping, Donald Trump, and Vladimir Putin: The Leaders Shaping the Future of Global Power</h2>
-      <p class="text-gray-300 mt-3 text-sm leading-relaxed">An in-depth look at how the world's most influential leaders are reshaping international relations, trade, and security.</p><button class="mt-5 bg-gold hover:bg-gold-light text-navy font-bold px-6 py-2.5 rounded text-sm transition-colors">Read Full Analysis</button>
-     </div>
-    </div><!-- Stats Bar -->
-    <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-     <div class="bg-white/5 backdrop-blur rounded p-3 text-center border border-white/10">
-      <p class="text-gold font-bold text-xl">195</p>
-      <p class="text-gray-400 text-xs">Nations Covered</p>
-     </div>
-     <div class="bg-white/5 backdrop-blur rounded p-3 text-center border border-white/10">
-      <p class="text-gold font-bold text-xl">24/7</p>
-      <p class="text-gray-400 text-xs">Live Updates</p>
-     </div>
-     <div class="bg-white/5 backdrop-blur rounded p-3 text-center border border-white/10">
-      <p class="text-gold font-bold text-xl">50+</p>
-      <p class="text-gray-400 text-xs">Expert Analysts</p>
-     </div>
-     <div class="bg-white/5 backdrop-blur rounded p-3 text-center border border-white/10">
-      <p class="text-gold font-bold text-xl">2M+</p>
-      <p class="text-gray-400 text-xs">Monthly Readers</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- Trending Topics -->
-  <div class="bg-white border-b border-gray-200 py-3">
-   <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center gap-2">
-    <span class="text-xs font-bold uppercase text-navy flex items-center gap-1"><i data-lucide="trending-up" style="width:14px;height:14px"></i> Trending:</span> <span class="bg-navy/5 text-navy text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-gold/20 transition-colors">#TradeWar</span> <span class="bg-navy/5 text-navy text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-gold/20 transition-colors">#G7Summit</span> <span class="bg-navy/5 text-navy text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-gold/20 transition-colors">#AIRegulation</span> <span class="bg-navy/5 text-navy text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-gold/20 transition-colors">#GlobalEconomy</span> <span class="bg-navy/5 text-navy text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-gold/20 transition-colors">#Elections2025</span>
-   </div>
-  </div><!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 py-8">
-   <div class="grid lg:grid-cols-3 gap-8">
-    <!-- Articles Column -->
-    <div class="lg:col-span-2">
-     <h3 class="font-playfair text-2xl font-bold text-navy mb-6 flex items-center gap-2"><span class="w-1 h-7 bg-gold rounded"></span>Featured Articles</h3><!-- Article Grid -->
-     <div class="grid md:grid-cols-2 gap-6 mb-8">
-      <article class="bg-white rounded-lg overflow-hidden shadow-sm card-hover border border-gray-100">
-       <div class="h-40 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center text-5xl">
-        🇨🇳
-       </div>
-       <div class="p-4">
-        <span class="text-xs text-gold font-semibold uppercase">China &amp; Asia</span>
-        <h4 class="font-playfair font-bold mt-1 text-navy leading-snug">Xi Jinping and China's Rise as a Global Superpower</h4>
-        <p class="text-gray-600 text-sm mt-2 line-clamp-2">How Beijing's strategic initiatives are reshaping global trade, technology, and diplomacy.</p>
-        <div class="flex items-center gap-2 mt-3 text-xs text-gray-400"><i data-lucide="clock" style="width:12px;height:12px"></i> 8 min read
-        </div>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg overflow-hidden shadow-sm card-hover border border-gray-100">
-       <div class="h-40 bg-gradient-to-br from-blue-800 to-red-700 flex items-center justify-center text-5xl">
-        🇺🇸
-       </div>
-       <div class="p-4">
-        <span class="text-xs text-gold font-semibold uppercase">US Politics</span>
-        <h4 class="font-playfair font-bold mt-1 text-navy leading-snug">Donald Trump's Political Comeback and Economic Policies</h4>
-        <p class="text-gray-600 text-sm mt-2 line-clamp-2">Analyzing the policy shifts and their impact on domestic and international markets.</p>
-        <div class="flex items-center gap-2 mt-3 text-xs text-gray-400"><i data-lucide="clock" style="width:12px;height:12px"></i> 10 min read
-        </div>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg overflow-hidden shadow-sm card-hover border border-gray-100">
-       <div class="h-40 bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center text-5xl">
-        🇷🇺
-       </div>
-       <div class="p-4">
-        <span class="text-xs text-gold font-semibold uppercase">Russia &amp; Europe</span>
-        <h4 class="font-playfair font-bold mt-1 text-navy leading-snug">Vladimir Putin's Influence on International Relations</h4>
-        <p class="text-gray-600 text-sm mt-2 line-clamp-2">Russia's geopolitical strategy and its effects on European and global security.</p>
-        <div class="flex items-center gap-2 mt-3 text-xs text-gray-400"><i data-lucide="clock" style="width:12px;height:12px"></i> 7 min read
-        </div>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg overflow-hidden shadow-sm card-hover border border-gray-100">
-       <div class="h-40 bg-gradient-to-br from-navy to-navy-mid flex items-center justify-center text-5xl">
-        🌍
-       </div>
-       <div class="p-4">
-        <span class="text-xs text-gold font-semibold uppercase">Global Affairs</span>
-        <h4 class="font-playfair font-bold mt-1 text-navy leading-snug">The Most Powerful Leaders in the World Today</h4>
-        <p class="text-gray-600 text-sm mt-2 line-clamp-2">Ranking influence, economic control, and military might across continents.</p>
-        <div class="flex items-center gap-2 mt-3 text-xs text-gray-400"><i data-lucide="clock" style="width:12px;height:12px"></i> 12 min read
-        </div>
-       </div>
-      </article>
-     </div><!-- In-content Ad -->
-     <div class="bg-gray-100 rounded-lg h-20 flex items-center justify-center text-gray-400 text-sm mb-8 border border-gray-200">
-      Advertisement
-     </div><!-- More Articles -->
-     <h3 class="font-playfair text-xl font-bold text-navy mb-4 flex items-center gap-2"><span class="w-1 h-6 bg-gold rounded"></span>Editor's Picks</h3>
-     <div class="space-y-4 mb-8">
-      <article class="bg-white rounded-lg p-4 shadow-sm card-hover border border-gray-100 flex gap-4">
-       <div class="w-20 h-20 rounded bg-gradient-to-br from-purple-700 to-indigo-900 flex items-center justify-center text-2xl shrink-0">
-        ⚡
-       </div>
-       <div>
-        <span class="text-xs text-gold font-semibold uppercase">Geopolitics</span>
-        <h4 class="font-playfair font-bold text-navy text-sm mt-0.5">Global Tensions, Trade Wars, and Geopolitical Competition</h4>
-        <p class="text-gray-500 text-xs mt-1">How rising nationalism reshapes alliances worldwide.</p>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg p-4 shadow-sm card-hover border border-gray-100 flex gap-4">
-       <div class="w-20 h-20 rounded bg-gradient-to-br from-cyan-600 to-blue-800 flex items-center justify-center text-2xl shrink-0">
-        🤖
-       </div>
-       <div>
-        <span class="text-xs text-gold font-semibold uppercase">Technology</span>
-        <h4 class="font-playfair font-bold text-navy text-sm mt-0.5">AI, Technology, and the Future of Government</h4>
-        <p class="text-gray-500 text-xs mt-1">The race to regulate and deploy artificial intelligence.</p>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg p-4 shadow-sm card-hover border border-gray-100 flex gap-4">
-       <div class="w-20 h-20 rounded bg-gradient-to-br from-green-700 to-emerald-900 flex items-center justify-center text-2xl shrink-0">
-        💰
-       </div>
-       <div>
-        <span class="text-xs text-gold font-semibold uppercase">Economy</span>
-        <h4 class="font-playfair font-bold text-navy text-sm mt-0.5">The Race for Economic Dominance Between Major Powers</h4>
-        <p class="text-gray-500 text-xs mt-1">GDP growth, debt, and the battle for global reserve currency.</p>
-       </div>
-      </article>
-      <article class="bg-white rounded-lg p-4 shadow-sm card-hover border border-gray-100 flex gap-4">
-       <div class="w-20 h-20 rounded bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-2xl shrink-0">
-        🛡️
-       </div>
-       <div>
-        <span class="text-xs text-gold font-semibold uppercase">Security</span>
-        <h4 class="font-playfair font-bold text-navy text-sm mt-0.5">Military Strength and Global Security Challenges</h4>
-        <p class="text-gray-500 text-xs mt-1">Defense spending, alliances, and emerging threats.</p>
-       </div>
-      </article>
-     </div><!-- Weekly Analysis -->
-     <div class="bg-navy rounded-lg p-6 text-white mb-8">
-      <h3 class="font-playfair text-xl font-bold flex items-center gap-2"><i data-lucide="bar-chart-2" style="width:20px;height:20px;color:#c9a84c"></i> Weekly Analysis</h3>
-      <p class="text-gray-300 text-sm mt-2">Our experts break down the most significant geopolitical developments each week with data-driven insights.</p>
-      <div class="grid grid-cols-3 gap-4 mt-4">
-       <div class="bg-white/10 rounded p-3 text-center">
-        <p class="text-gold font-bold">↑ 2.3%</p>
-        <p class="text-xs text-gray-400">US Markets</p>
-       </div>
-       <div class="bg-white/10 rounded p-3 text-center">
-        <p class="text-gold font-bold">↓ 0.8%</p>
-        <p class="text-xs text-gray-400">EU Growth</p>
-       </div>
-       <div class="bg-white/10 rounded p-3 text-center">
-        <p class="text-gold font-bold">↑ 5.1%</p>
-        <p class="text-xs text-gray-400">China GDP</p>
-       </div>
-      </div>
-     </div>
-    </div><!-- Sidebar -->
-    <aside class="space-y-6">
-     <!-- Sidebar Ad -->
-     <div class="bg-gray-100 rounded-lg h-60 flex items-center justify-center text-gray-400 text-sm border border-gray-200">
-      Advertisement
-     </div><!-- Trending Stories -->
-     <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
-      <h4 class="font-playfair font-bold text-navy flex items-center gap-2 mb-4"><i data-lucide="flame" style="width:16px;height:16px;color:#c9a84c"></i> Trending Stories</h4>
-      <div class="space-y-3">
-       <a href="#" class="block gold-border pl-3 py-1 hover:bg-gray-50 transition-colors"><p class="text-sm font-semibold text-navy leading-snug">New sanctions reshape energy markets</p><p class="text-xs text-gray-400 mt-0.5">2 hours ago</p></a> <a href="#" class="block gold-border pl-3 py-1 hover:bg-gray-50 transition-colors"><p class="text-sm font-semibold text-navy leading-snug">Summit talks collapse over trade disputes</p><p class="text-xs text-gray-400 mt-0.5">4 hours ago</p></a> <a href="#" class="block gold-border pl-3 py-1 hover:bg-gray-50 transition-colors"><p class="text-sm font-semibold text-navy leading-snug">AI regulation proposal divides leaders</p><p class="text-xs text-gray-400 mt-0.5">6 hours ago</p></a> <a href="#" class="block gold-border pl-3 py-1 hover:bg-gray-50 transition-colors"><p class="text-sm font-semibold text-navy leading-snug">Military alliance announces expansion</p><p class="text-xs text-gray-400 mt-0.5">8 hours ago</p></a> <a href="#" class="block gold-border pl-3 py-1 hover:bg-gray-50 transition-colors"><p class="text-sm font-semibold text-navy leading-snug">Currency markets react to policy shift</p><p class="text-xs text-gray-400 mt-0.5">10 hours ago</p></a>
-      </div>
-     </div><!-- World Leaders Ranking -->
-     <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
-      <h4 class="font-playfair font-bold text-navy flex items-center gap-2 mb-4"><i data-lucide="crown" style="width:16px;height:16px;color:#c9a84c"></i> Power Rankings</h4>
-      <div class="space-y-2.5">
-       <div class="flex items-center gap-3"><span class="text-gold font-bold w-5">1</span><span class="text-lg">🇺🇸</span><span class="text-sm font-semibold">United States</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-gold font-bold w-5">2</span><span class="text-lg">🇨🇳</span><span class="text-sm font-semibold">China</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-gold font-bold w-5">3</span><span class="text-lg">🇷🇺</span><span class="text-sm font-semibold">Russia</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-gold font-bold w-5">4</span><span class="text-lg">🇩🇪</span><span class="text-sm font-semibold">Germany</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-gold font-bold w-5">5</span><span class="text-lg">🇬🇧</span><span class="text-sm font-semibold">United Kingdom</span>
-       </div>
-      </div>
-     </div><!-- Global Markets -->
-     <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
-      <h4 class="font-playfair font-bold text-navy flex items-center gap-2 mb-4"><i data-lucide="line-chart" style="width:16px;height:16px;color:#c9a84c"></i> Market Updates</h4>
-      <div class="space-y-2 text-sm">
-       <div class="flex justify-between"><span class="text-gray-600">S&amp;P 500</span><span class="text-green-600 font-semibold">+1.2%</span>
-       </div>
-       <div class="flex justify-between"><span class="text-gray-600">FTSE 100</span><span class="text-red-600 font-semibold">-0.4%</span>
-       </div>
-       <div class="flex justify-between"><span class="text-gray-600">Shanghai</span><span class="text-green-600 font-semibold">+0.8%</span>
-       </div>
-       <div class="flex justify-between"><span class="text-gray-600">Nikkei 225</span><span class="text-green-600 font-semibold">+1.5%</span>
-       </div>
-       <div class="flex justify-between"><span class="text-gray-600">DAX</span><span class="text-red-600 font-semibold">-0.2%</span>
-       </div>
-      </div>
-     </div><!-- Newsletter -->
-     <div class="bg-navy rounded-lg p-5 text-white">
-      <h4 class="font-playfair font-bold flex items-center gap-2"><i data-lucide="mail" style="width:16px;height:16px;color:#c9a84c"></i> Daily Briefing</h4>
-      <p class="text-gray-300 text-xs mt-2">Get expert geopolitical analysis delivered to your inbox every morning.</p>
-      <form class="mt-3" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'; this.querySelector('button').disabled=true;">
-       <input type="email" placeholder="your@email.com" class="w-full px-3 py-2 rounded text-sm text-gray-900 bg-white border-0" required aria-label="Email for newsletter"> <button type="submit" class="w-full mt-2 bg-gold hover:bg-gold-light text-navy font-bold py-2 rounded text-sm transition-colors">Subscribe Free</button>
-      </form>
-     </div><!-- Sidebar Ad -->
-     <div class="bg-gray-100 rounded-lg h-60 flex items-center justify-center text-gray-400 text-sm border border-gray-200">
-      Advertisement
-     </div>
-    </aside>
-   </div>
-  </main><!-- Most Read Section -->
-  <section class="bg-white border-t border-gray-200 py-8">
-   <div class="max-w-7xl mx-auto px-4">
-    <h3 class="font-playfair text-xl font-bold text-navy mb-5 flex items-center gap-2"><span class="w-1 h-6 bg-gold rounded"></span> Most Read This Week</h3>
-    <div class="grid md:grid-cols-4 gap-4">
-     <div class="flex gap-3 items-start"><span class="text-3xl font-bold text-gold/30">01</span>
-      <p class="text-sm font-semibold text-navy leading-snug">How trade tensions are reshaping supply chains globally</p>
-     </div>
-     <div class="flex gap-3 items-start"><span class="text-3xl font-bold text-gold/30">02</span>
-      <p class="text-sm font-semibold text-navy leading-snug">Nuclear diplomacy enters new era of uncertainty</p>
-     </div>
-     <div class="flex gap-3 items-start"><span class="text-3xl font-bold text-gold/30">03</span>
-      <p class="text-sm font-semibold text-navy leading-snug">The semiconductor war and its geopolitical consequences</p>
-     </div>
-     <div class="flex gap-3 items-start"><span class="text-3xl font-bold text-gold/30">04</span>
-      <p class="text-sm font-semibold text-navy leading-snug">Democracy under pressure in multiple regions</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- Footer Ad -->
-  <div class="bg-gray-100 border-t border-gray-200 py-4">
-   <div class="max-w-4xl mx-auto px-4">
-    <div class="bg-gray-200 rounded h-20 flex items-center justify-center text-gray-400 text-sm">
-     Advertisement
-    </div>
-   </div>
-  </div><!-- Footer -->
-  <footer class="bg-navy text-white py-10">
-   <div class="max-w-7xl mx-auto px-4">
-    <div class="grid md:grid-cols-4 gap-8 mb-8">
-     <div>
-      <h4 class="font-playfair font-bold text-lg">Power &amp; Politics</h4>
-      <p class="text-gray-400 text-xs mt-2 leading-relaxed">Independent, fact-based analysis of global leadership, geopolitics, and international affairs.</p>
-     </div>
-     <div>
-      <h5 class="font-semibold text-gold text-sm mb-3">Sections</h5>
-      <div class="space-y-1.5 text-xs text-gray-400">
-       <a href="#" class="block hover:text-white transition-colors">World Leaders</a> <a href="#" class="block hover:text-white transition-colors">Global Economy</a> <a href="#" class="block hover:text-white transition-colors">International Relations</a> <a href="#" class="block hover:text-white transition-colors">Technology &amp; AI</a> <a href="#" class="block hover:text-white transition-colors">Historical Analysis</a>
-      </div>
-     </div>
-     <div>
-      <h5 class="font-semibold text-gold text-sm mb-3">Company</h5>
-      <div class="space-y-1.5 text-xs text-gray-400">
-       <a href="#about" class="block hover:text-white transition-colors">About Us</a> <a href="#contact" class="block hover:text-white transition-colors">Contact</a> <a href="#" class="block hover:text-white transition-colors">Careers</a> <a href="#" class="block hover:text-white transition-colors">Advertise</a>
-      </div>
-     </div>
-     <div>
-      <h5 class="font-semibold text-gold text-sm mb-3">Legal</h5>
-      <div class="space-y-1.5 text-xs text-gray-400">
-       <a href="#" class="block hover:text-white transition-colors">Privacy Policy</a> <a href="#" class="block hover:text-white transition-colors">Terms &amp; Conditions</a> <a href="#" class="block hover:text-white transition-colors">Disclaimer</a> <a href="#" class="block hover:text-white transition-colors">Cookie Policy</a>
-      </div>
-     </div>
-    </div>
-    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-     <p class="text-xs text-gray-500">© 2025 Power &amp; Politics: Inside Global Leadership. All rights reserved.</p>
-     <div class="flex gap-4">
-      <a href="#" class="text-gray-400 hover:text-gold transition-colors" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px"></i></a> <a href="#" class="text-gray-400 hover:text-gold transition-colors" aria-label="Facebook"><i data-lucide="facebook" style="width:16px;height:16px"></i></a> <a href="#" class="text-gray-400 hover:text-gold transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px"></i></a> <a href="#" class="text-gray-400 hover:text-gold transition-colors" aria-label="RSS"><i data-lucide="rss" style="width:16px;height:16px"></i></a>
-     </div>
-    </div>
-   </div>
-  </footer>
-  <script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
 
-  // Element SDK
-  const defaultConfig = {
-    site_title: 'Power & Politics',
-    main_headline: 'Xi Jinping, Donald Trump, and Vladimir Putin: The Leaders Shaping the Future of Global Power',
-    breaking_news: 'G7 Summit concludes with new economic sanctions framework • UN Security Council emergency session on regional conflicts • Global markets react to trade policy shifts',
-    primary_color: '#0a1628',
-    secondary_color: '#ffffff',
-    text_color: '#1a1a2e',
-    gold_color: '#c9a84c',
-    accent_color: '#132240',
-    font_family: 'Playfair Display',
-    font_size: 16
-  };
+    <div class="text-right text-xs text-sage hidden md:block">
+      <div id="date"></div>
+      <p>Issue #2025</p>
+    </div>
 
-  function applyConfig(config) {
-    const title = document.getElementById('site-title');
-    const headline = document.getElementById('main-headline');
-    if (title) title.textContent = config.site_title || defaultConfig.site_title;
-    if (headline) headline.textContent = config.main_headline || defaultConfig.main_headline;
+  </div>
+</header>
 
-    const font = config.font_family || defaultConfig.font_family;
-    document.querySelectorAll('.font-playfair').forEach(el => {
-      el.style.fontFamily = `${font}, serif`;
-    });
+<!-- HERO -->
+<section class="relative bg-charcoal text-cream">
 
-    const size = config.font_size || defaultConfig.font_size;
-    document.body.style.fontSize = `${size}px`;
-  }
+  <div class="absolute inset-0 opacity-20">
+    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da')] bg-cover bg-center"></div>
+  </div>
 
-  window.elementSdk.init({
-    defaultConfig,
-    onConfigChange: async (config) => { applyConfig(config); },
-    mapToCapabilities: (config) => ({
-      recolorables: [
-        { get: () => config.primary_color || defaultConfig.primary_color, set: (v) => { config.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); } },
-        { get: () => config.secondary_color || defaultConfig.secondary_color, set: (v) => { config.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); } },
-        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-        { get: () => config.gold_color || defaultConfig.gold_color, set: (v) => { config.gold_color = v; window.elementSdk.setConfig({ gold_color: v }); } },
-        { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } }
-      ],
-      borderables: [],
-      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
-      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
-    }),
-    mapToEditPanelValues: (config) => new Map([
-      ['site_title', config.site_title || defaultConfig.site_title],
-      ['main_headline', config.main_headline || defaultConfig.main_headline],
-      ['breaking_news', config.breaking_news || defaultConfig.breaking_news]
-    ])
-  });
+  <div class="hero-overlay absolute inset-0"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 py-20 text-center">
+
+    <p class="text-xs uppercase tracking-widest text-sage mb-4">
+      Featured Historical Analysis
+    </p>
+
+    <h2 class="font-cormorant text-4xl md:text-5xl font-bold leading-tight">
+      Mahatma Gandhi: Freedom Fighter and Controversial Global Icon
+    </h2>
+
+    <p class="mt-4 text-cream/80 max-w-3xl mx-auto">
+      A balanced exploration of Gandhi’s achievements, philosophy, and historical debates surrounding his legacy.
+    </p>
+
+    <div class="flex justify-center gap-3 mt-6 text-xs flex-wrap">
+      <span class="px-3 py-1 bg-sage/20 rounded">1869–1948</span>
+      <span class="px-3 py-1 bg-rust/20 rounded">Non-Violence</span>
+      <span class="px-3 py-1 bg-sage/20 rounded">Independence Leader</span>
+      <span class="px-3 py-1 bg-rust/20 rounded">Historical Debate</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTRO BAR -->
+<section class="bg-white border-b border-gray-200 py-3">
+  <div class="max-w-6xl mx-auto px-4 text-sm text-gray-600">
+    By Historical Research Team • Published 2025 • 18 min read
+  </div>
+</section>
+
+<script>
+  document.getElementById("date").textContent =
+    new Date().toDateString();
 
   lucide.createIcons();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c3190ec6da7f88',t:'MTc4MTU0MjQ3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</body>
+</html>
+<!-- MAIN CONTENT -->
+<main class="max-w-6xl mx-auto px-4 py-10">
+
+  <!-- GRID -->
+  <div class="grid lg:grid-cols-3 gap-10">
+
+    <!-- ARTICLE -->
+    <article class="lg:col-span-2 space-y-10">
+
+      <!-- EARLY LIFE -->
+      <section>
+        <h3 class="font-cormorant text-2xl font-bold mb-3">
+          Early Life and Background
+        </h3>
+
+        <p class="text-gray-700 leading-relaxed">
+          Mohandas Karamchand Gandhi was born on October 2, 1869, in Porbandar, India.
+          He studied law in London and later worked in South Africa, where he first
+          experienced racial discrimination.
+        </p>
+
+        <p class="mt-3 text-gray-700 leading-relaxed">
+          These experiences shaped his philosophy of non-violence and truth, known as
+          Satyagraha, which later became the foundation of India’s independence movement.
+        </p>
+      </section>
+
+      <div class="section-divider my-6"></div>
+
+      <!-- INDEPENDENCE -->
+      <section>
+        <h3 class="font-cormorant text-2xl font-bold mb-3">
+          Role in India’s Independence Movement
+        </h3>
+
+        <p class="text-gray-700 leading-relaxed">
+          Gandhi returned to India in 1915 and became a leader of the Indian National Congress.
+          He led several major movements against British rule.
+        </p>
+
+        <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-2">
+          <li><b>Non-Cooperation Movement (1920)</b> – Boycott of British goods and institutions</li>
+          <li><b>Salt March (1930)</b> – Protest against British salt tax</li>
+          <li><b>Quit India Movement (1942)</b> – Demand for complete independence</li>
+        </ul>
+
+        <p class="mt-3 text-gray-700 leading-relaxed">
+          These movements mobilized millions of Indians through non-violent resistance.
+        </p>
+      </section>
+
+      <div class="section-divider my-6"></div>
+
+      <!-- PHILOSOPHY -->
+      <section>
+        <h3 class="font-cormorant text-2xl font-bold mb-3">
+          Philosophy of Non-Violence (Ahimsa)
+        </h3>
+
+        <p class="text-gray-700 leading-relaxed">
+          Gandhi’s philosophy was based on Ahimsa (non-violence) and Satyagraha (truth-force).
+        </p>
+
+        <div class="mt-4 space-y-3">
+          <div class="border-l-4 border-sepia pl-4">
+            <p class="font-semibold">Non-violence is strength, not weakness</p>
+            <p class="text-sm text-gray-600">Requires courage and discipline</p>
+          </div>
+
+          <div class="border-l-4 border-sepia pl-4">
+            <p class="font-semibold">Truth must guide action</p>
+            <p class="text-sm text-gray-600">Means must be as pure as the goal</p>
+          </div>
+
+          <div class="border-l-4 border-sepia pl-4">
+            <p class="font-semibold">Peaceful resistance can change society</p>
+            <p class="text-sm text-gray-600">Mass movements without violence</p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="space-y-6">
+
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-bold mb-2">Timeline</h4>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li><b>1869</b> – Born in Porbandar</li>
+          <li><b>1893</b> – South Africa activism begins</li>
+          <li><b>1920</b> – Non-Cooperation Movement</li>
+          <li><b>1930</b> – Salt March</li>
+          <li><b>1942</b> – Quit India Movement</li>
+          <li><b>1948</b> – Assassinated</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-bold mb-2">Key Quotes</h4>
+        <p class="text-sm italic">“Be the change you wish to see in the world.”</p>
+        <p class="text-sm italic mt-2">“Non-violence is a weapon of the strong.”</p>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+<!-- CONTROVERSIES -->
+<section class="max-w-6xl mx-auto px-4 py-10">
+
+  <div class="section-divider my-8"></div>
+
+  <h3 class="font-cormorant text-2xl font-bold mb-6">
+    Criticisms and Controversies
+  </h3>
+
+  <div class="space-y-6 text-gray-700 leading-relaxed">
+
+    <div>
+      <h4 class="font-semibold">1. Partition and Political Decisions</h4>
+      <p>
+        Some historians argue Gandhi’s approach during India’s partition
+        did not prevent large-scale communal violence.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold">2. Views on Caste System</h4>
+      <p>
+        Gandhi opposed untouchability but was criticized by Dr. B.R. Ambedkar
+        for not fully dismantling the caste structure.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold">3. Economic Ideas</h4>
+      <p>
+        His focus on rural economy and spinning wheel (khadi) was seen by some
+        as impractical for modern industrial development.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold">4. Gender and Social Views</h4>
+      <p>
+        Some scholars critique his views on gender roles and personal experiments
+        related to celibacy.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- LEGACY -->
+<section class="bg-cream border-t border-gray-200 py-10">
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <h3 class="font-cormorant text-2xl font-bold mb-4">
+      Legacy and Global Influence
+    </h3>
+
+    <p class="text-gray-700 leading-relaxed">
+      Gandhi’s philosophy of non-violence influenced global leaders such as
+      Martin Luther King Jr. and Nelson Mandela. His ideas remain central to
+      discussions on peaceful resistance and civil rights movements.
+    </p>
+
+    <p class="mt-3 text-gray-700 leading-relaxed">
+      Today, Gandhi is remembered as both a national hero and a complex
+      historical figure whose legacy continues to be studied and debated.
+    </p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-charcoal text-cream py-10 mt-10">
+
+  <div class="max-w-6xl mx-auto px-4 text-center">
+
+    <h4 class="font-cormorant text-xl font-bold">
+      Controversy Files
+    </h4>
+
+    <p class="text-sm text-sage mt-2">
+      A balanced historical analysis platform
+    </p>
+
+    <p class="text-xs text-gray-400 mt-6">
+      © 2026 All rights reserved
+    </p>
+
+  </div>
+</footer>
+
+<!-- FINAL SCRIPT -->
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
 </html>
